@@ -4,12 +4,11 @@ namespace ConsoleApp10
     {
         static void Main(string[] args)
         {
-            double date;
+            double lado;
 
-            Console.WriteLine("Indicar una fecha como un entero de 6 dígitos");
-            date = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Fecha: {date}");
-            Console.WriteLine($"Mes: {Math.Truncate(Math.Truncate(date / 100) % 100)}");
+            Console.WriteLine("Ingrese el largo del lado del cuadrado");
+            lado = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"El area del cuadrado es {lado * lado} metros cuadrados");
         }
     }
 } 
