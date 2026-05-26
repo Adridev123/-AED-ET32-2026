@@ -1,5 +1,3 @@
-using System.Globalization;
-
 namespace ConsoleApp10
 {
     internal class Program
