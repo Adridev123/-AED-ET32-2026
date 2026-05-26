@@ -4,12 +4,12 @@ namespace ConsoleApp10
     {
         static void Main(string[] args)
         {
-            double date;
+            int valor_hora = 13500;
+            double horas_trabajadas;
 
-            Console.WriteLine("Indicar una fecha como un entero de 6 dígitos");
-            date = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Fecha: {date}");
-            Console.WriteLine($"Mes: {Math.Truncate(Math.Truncate(date / 100) % 100)}");
+            Console.WriteLine("Ingese la cantidad de horas trabajadas");
+            horas_trabajadas = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine($"El sueldo bruto es: {horas_trabajadas * valor_hora}");
         }
     }
 } 
