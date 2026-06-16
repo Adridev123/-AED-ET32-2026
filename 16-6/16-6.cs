@@ -200,6 +200,132 @@ static void Ejercicio10()
 }
 
 
+static void Ejercicio11()
+{
+    try
+    {
+        Console.Write("Ingrese una edad: ");
+        int edad = Convert.ToInt32(Console.ReadLine());
+
+        if (edad < 1 || edad > 120)
+        {
+            throw new ArgumentOutOfRangeException("edad", "La edad debe estar entre 1 y 120.");
+        }
+
+        Console.WriteLine("Edad válida.");
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Error: debe ingresar un número entero.");
+    }
+    catch (ArgumentOutOfRangeException ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}");
+    }
+}
+
+
+static void Ejercicio12()
+{
+    try
+    {
+        string texto = null;
+
+        Console.WriteLine(texto.Length);
+    }
+    catch (NullReferenceException)
+    {
+        Console.WriteLine("Error: se intentó acceder a una referencia nula.");
+    }
+}
+
+
+static void Ejercicio13()
+{
+    try
+    {
+        int num1, num2, suma;
+
+        Console.Write("Ingrese el primer número: ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Ingrese el segundo número: ");
+        num2 = Convert.ToInt32(Console.ReadLine());
+
+        checked
+        {
+            suma = num1 + num2;
+        }
+
+        Console.WriteLine($"La suma es: {suma}");
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Error: debe ingresar números válidos.");
+    }
+    catch (OverflowException)
+    {
+        Console.WriteLine("Error: la suma excede el rango permitido para un entero.");
+    }
+}
+
+
+static void Ejercicio14()
+{
+    try
+    {
+        Console.Write("Ingrese una frase: ");
+        string frase = Console.ReadLine() ?? "";
+
+        if (frase.Length == 0)
+        {
+            throw new ArgumentException("La frase no puede estar vacía.");
+        }
+
+        Console.WriteLine($"Cantidad de caracteres: {frase.Length}");
+
+        string[] palabras = frase.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        Console.WriteLine($"Cantidad de palabras: {palabras.Length}");
+
+        int vocales = 0;
+        foreach (char letra in frase.ToLower())
+        {
+            if ("aeiou".Contains(letra))
+            {
+                vocales++;
+            }
+        }
+        Console.WriteLine($"Cantidad de vocales: {vocales}");
+
+        Console.Write("Ingrese una posición: ");
+        int posicion = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine($"Carácter: {frase[posicion]}");
+
+        Console.Write("Ingrese un número: ");
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine($"100 / {numero} = {100 / numero}");
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Error: formato de número inválido.");
+    }
+    catch (IndexOutOfRangeException)
+    {
+        Console.WriteLine("Error: la posición está fuera de rango.");
+    }
+    catch (DivideByZeroException)
+    {
+        Console.WriteLine("Error: no se puede dividir por cero.");
+    }
+    catch (ArgumentException ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}");
+    }
+}
+
+
 int opcion;
 
 
@@ -236,10 +362,10 @@ do
         case 8: Ejercicio8(); break;
         case 9: Ejercicio9(); break;
         case 10: Ejercicio10(); break;
-        //case 11: Ejercicio11(); break;
-        //case 12: Ejercicio12(); break;
-        //case 13: Ejercicio13(); break;
-        //case 14: Ejercicio14(); break;
+        case 11: Ejercicio11(); break;
+        case 12: Ejercicio12(); break;
+        case 13: Ejercicio13(); break;
+        case 14: Ejercicio14(); break;
         case 0: Console.WriteLine("Adios"); break;
     }
 } while (opcion != 0);
