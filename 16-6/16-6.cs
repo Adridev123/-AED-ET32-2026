@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 static void Ejercicio1()
 {
     string palabra;
